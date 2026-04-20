@@ -1,37 +1,29 @@
-class Student {
+class Message {
   final int? id;
-  final String name;
-  final double quiz;
-  final double activity;
-  final double exam;
+  final String username;
+  final String message;
+  final DateTime? createdAt;
 
-  Student({
+  Message({
     this.id,
-    required this.name,
-    required this.quiz,
-    required this.activity,
-    required this.exam,
+    required this.username,
+    required this.message,
+    this.createdAt,
   });
 
-  // Calculate average
-  double get average => (quiz + activity + exam) / 3;
-
-  // Determine status
-  String get status => average >= 75 ? 'Passed' : 'Failed';
-
-  // From database
-  factory Student.fromMap(Map<String, dynamic> map) {
-    return Student(
+  factory Message.fromMap(Map<String, dynamic> map) {
+    return Message(
       id: map['id'],
-      name: map['name'],
-      quiz: double.parse(map['quiz'].toString()),
-      activity: double.parse(map['activity'].toString()),
-      exam: double.parse(map['exam'].toString()),
+      username: map['username'],
+      message: map['message'],
+      createdAt: map['created_at'] != null ? DateTime.parse(map['created_at']) : null,
     );
   }
 
-  // To database
   Map<String, dynamic> toMap() {
-    return {'name': name, 'quiz': quiz, 'activity': activity, 'exam': exam};
+    return {
+      'username': username,
+      'message': message,
+    };
   }
 }

@@ -1,3 +1,4 @@
+import 'package:modelhandling/data/studentdata.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:modelhandling/model/student_model.dart';
 

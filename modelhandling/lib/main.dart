@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:modelhandling/screen/login_screen.dart';
-import 'package:modelhandling/screen/signup_screen.dart';
-import 'package:modelhandling/screen/student_screen.dart';
+import 'package:modelhandling/controller/chat_controller.dart';
+
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 
@@ -27,7 +26,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
-      home: const RegisterPage(),
+      home: const ChatPage(username: 'Li'),
     );
   }
 }
